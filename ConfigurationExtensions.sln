@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ChimpLab.Extensions.Configuration.Json", "src\ChimpLab.Extensions.Configuration.Json\ChimpLab.Extensions.Configuration.Json.xproj", "{B61D534E-D524-486C-8CE0-53A8A80B5E47}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ChimpLab.Extensions.Configuration.Json.Tests", "tests\ChimpLab.Extensions.Configuration.Json.Tests\ChimpLab.Extensions.Configuration.Json.Tests.xproj", "{8421B404-FADD-420F-93D4-8EDD9AAEB27E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B61D534E-D524-486C-8CE0-53A8A80B5E47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B61D534E-D524-486C-8CE0-53A8A80B5E47}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B61D534E-D524-486C-8CE0-53A8A80B5E47}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B61D534E-D524-486C-8CE0-53A8A80B5E47}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8421B404-FADD-420F-93D4-8EDD9AAEB27E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8421B404-FADD-420F-93D4-8EDD9AAEB27E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8421B404-FADD-420F-93D4-8EDD9AAEB27E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8421B404-FADD-420F-93D4-8EDD9AAEB27E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
