@@ -21,7 +21,7 @@ config = sut.Build();
 
 Supports the usual *optional* and *reloadOnChange*.
 
-## AddJsonFileFromAbsolutePath
+## AddJsonFileFromEnvironmentVariable
 
 Assuming we have an environment variable set of:
 
@@ -31,7 +31,7 @@ Assuming we have an environment variable set of:
 string key = "myproject";
 IConfigurationBuilder builder = new ConfigurationBuilder();
 
-builder.JsonConfigurationEnvironmentVariablesExtensions(key);
+builder.AddJsonFileFromEnvironmentVariable(key);
 config = sut.Build();
 ```
 
