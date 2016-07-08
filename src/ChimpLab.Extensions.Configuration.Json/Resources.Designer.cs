@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ChimpLab.Extensions.Configuration.Json {
+namespace ChimpLab.Extensions.Configuration {
     using System;
     using System.Reflection;
     
