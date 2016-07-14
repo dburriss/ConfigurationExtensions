@@ -11,6 +11,9 @@ Check the official documentation on usage: https://docs.asp.net/en/latest/fundam
 
     Install-Package ChimpLab.Extensions.Configuration.Json
 
+Then
+    using ChimpLab.Extensions.Configuration;
+
 ## AddJsonFileFromAbsolutePath
 
 ```csharp
