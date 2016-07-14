@@ -9,6 +9,8 @@ Check the official documentation on usage: https://docs.asp.net/en/latest/fundam
 
 ## Example Usage
 
+    Install-Package ChimpLab.Extensions.Configuration.Json
+
 ## AddJsonFileFromAbsolutePath
 
 ```csharp
