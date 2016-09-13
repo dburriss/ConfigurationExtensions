@@ -85,6 +85,26 @@ namespace ChimpLab.Extensions.Configuration.Json.Tests
             Assert.Contains("Database", config.AsEnumerable().Select(k => k.Key));
         }
 
+        [Fact]
+        public void AddJsonFileFromAbsolutePath_OptionalWithPathThatDoesNotExist_DoesNotAddFile()
+        {
+            string path = "c:\\this\\directory\\doesnotexist\\file.json";
+            IConfigurationBuilder sut = new ConfigurationBuilder();
+
+            sut.AddJsonFileFromAbsolutePath(path, optional:true);
+
+            Assert.Empty(sut.Sources);
+        }
+
+        [Fact]
+        public void AddJsonFileFromAbsolutePath_OptionalButReloadOnChangeWithPathThatDoesNotExist_ThrowsException()
+        {
+            string path = "c:\\this\\directory\\doesnotexist\\file.json";
+            IConfigurationBuilder sut = new ConfigurationBuilder();
+
+            Assert.Throws<ArgumentException>(() => sut.AddJsonFileFromAbsolutePath(path, optional:true, reloadOnChange: true));
+        }
+
         private T GetValue<T>(IConfigurationSource source, string propName)
         {
             var type = source.GetType();
