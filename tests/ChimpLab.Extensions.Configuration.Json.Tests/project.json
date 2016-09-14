@@ -3,9 +3,9 @@
   "testRunner": "xunit",
   "dependencies": {
     "xunit": "2.2.0-beta2-build3300",
-    "PhilosophicalMonkey": "0.14.0",
+    "PhilosophicalMonkey": "1.0.0",
     "dotnet-test-xunit": "2.2.0-preview2-build1029",
-    "ChimpLab.Extensions.Configuration.Json": "0.1.1"
+    "ChimpLab.Extensions.Configuration.Json": "0.1.2"
   },
   "frameworks": {
     "net451": {
