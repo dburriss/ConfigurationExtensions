@@ -63,7 +63,8 @@ namespace ChimpLab.Extensions.Configuration.Json.Tests
             {
                 // free other managed objects that implement
                 // IDisposable only
-                stream.Dispose();
+                if(stream != null)
+                    stream.Dispose();
                 System.IO.File.Delete(path);
             }
 
