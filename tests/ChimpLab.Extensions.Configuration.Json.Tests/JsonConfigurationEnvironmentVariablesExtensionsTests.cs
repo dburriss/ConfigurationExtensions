@@ -8,6 +8,14 @@ namespace ChimpLab.Extensions.Configuration.Json.Tests
 {
     public class JsonConfigurationEnvironmentVariablesExtensionsTests
     {
+        private const string doesNotExistPath = "c:\\doesnotexist.json";
+        private string _fileToCreate = "";
+        public JsonConfigurationEnvironmentVariablesExtensionsTests()
+        {
+            var tempPath = System.IO.Path.GetTempPath();
+            _fileToCreate = System.IO.Path.Combine(tempPath, "test.json");
+        }
+
         [Fact]
         public void AddJsonFileFromEnvironmentVariable_WithKeyThatDoesNotExist_DoesNothing()
         {
@@ -23,7 +31,7 @@ namespace ChimpLab.Extensions.Configuration.Json.Tests
         public void AddJsonFileFromEnvironmentVariable_WithKeyThatDoesExist_AddsSource()
         {
             string key = "SomeKeyThatDoesNotExist";
-            string path = "c:\\dev\\test.json";
+            string path = _fileToCreate;
             var contents = @"{ 'Database' : 'Acceptance Db' }";
             Environment.SetEnvironmentVariable(key, path);
             IConfigurationBuilder sut = new ConfigurationBuilder();
@@ -40,7 +48,7 @@ namespace ChimpLab.Extensions.Configuration.Json.Tests
         public void AddJsonFileFromEnvironmentVariable_WhenBuild_CreatesConfig()
         {
             string key = "SomeKeyThatDoesNotExist";
-            string path = "c:\\dev\\test.json";
+            string path = _fileToCreate;
             var contents = @"{ 'Database' : 'Acceptance Db' }";
             Environment.SetEnvironmentVariable(key, path);
             IConfigurationBuilder sut = new ConfigurationBuilder();
@@ -58,7 +66,7 @@ namespace ChimpLab.Extensions.Configuration.Json.Tests
         public void AddJsonFileFromEnvironmentVariable_BuildWithKeyThatDoesExist_ContainsConfigKey()
         {
             string key = "SomeKeyThatDoesNotExist";
-            string path = "c:\\dev\\test.json";
+            string path = _fileToCreate;
             var contents = @"{ 'Database' : 'Acceptance Db' }";
             Environment.SetEnvironmentVariable(key, path);
             IConfigurationBuilder sut = new ConfigurationBuilder();
