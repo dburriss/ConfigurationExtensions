@@ -10,6 +10,13 @@ namespace ChimpLab.Extensions.Configuration.Json.Tests
 {
     public class JsonConfigurationAbsolutePathExtensionsTests
     {
+        private const string doesNotExistPath = "c:\\doesnotexist.json";
+        private string _fileToCreate = "";
+        public JsonConfigurationAbsolutePathExtensionsTests()
+        {
+            var tempPath = System.IO.Path.GetTempPath();
+            _fileToCreate = System.IO.Path.Combine(tempPath, "test.json");
+        }
         [Fact]
         public void AddJsonFileFromAbsolutePath_WithNoPath_ThrowsArgumentException()
         {
@@ -22,7 +29,7 @@ namespace ChimpLab.Extensions.Configuration.Json.Tests
         [Fact]
         public void AddJsonFileFromAbsolutePath_WithPath_AddsProvider()
         {
-            string path = "c:\\doesnotexist.json";
+            string path = doesNotExistPath;
             IConfigurationBuilder sut = new ConfigurationBuilder();
 
             sut.AddJsonFileFromAbsolutePath(path);
@@ -33,7 +40,7 @@ namespace ChimpLab.Extensions.Configuration.Json.Tests
         [Fact]
         public void AddJsonFileFromAbsolutePath_WithPath_PathSetToFilename()
         {
-            string path = "c:\\doesnotexist.json";
+            string path = doesNotExistPath;
             IConfigurationBuilder sut = new ConfigurationBuilder();
 
             sut.AddJsonFileFromAbsolutePath(path);
@@ -45,7 +52,7 @@ namespace ChimpLab.Extensions.Configuration.Json.Tests
         [Fact]
         public void AddJsonFileFromAbsolutePath_WithPath_SourceIsJsonConfigurationSource()
         {
-            string path = "c:\\doesnotexist.json";
+            string path = doesNotExistPath;
             IConfigurationBuilder sut = new ConfigurationBuilder();
 
             sut.AddJsonFileFromAbsolutePath(path);
@@ -56,7 +63,7 @@ namespace ChimpLab.Extensions.Configuration.Json.Tests
         [Fact]
         public void AddJsonFileFromAbsolutePath_BuildWithPathThatExists_BuildsAConfig()
         {
-            string path = "c:\\dev\\test.json";
+            string path = _fileToCreate;
             var contents = @"{ 'Database' : 'Acceptance Db' }";
             IConfigurationBuilder sut = new ConfigurationBuilder();
             IConfiguration config = null;
@@ -72,7 +79,7 @@ namespace ChimpLab.Extensions.Configuration.Json.Tests
         [Fact]
         public void AddJsonFileFromAbsolutePath_BuildWithPathThatExists_ContainsDatabaseConfig()
         {
-            string path = "c:\\dev\\test.json";
+            string path = _fileToCreate;
             var contents = @"{ 'Database' : 'Acceptance Db' }";
             IConfigurationBuilder sut = new ConfigurationBuilder();
             IConfiguration config = null;

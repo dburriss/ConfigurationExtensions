@@ -65,7 +65,9 @@ namespace ChimpLab.Extensions.Configuration.Json.Tests
                 // IDisposable only
                 if(stream != null)
                     stream.Dispose();
-                System.IO.File.Delete(path);
+
+                if(File.Exists(path))
+                    System.IO.File.Delete(path);
             }
 
             // release any unmanaged objects
