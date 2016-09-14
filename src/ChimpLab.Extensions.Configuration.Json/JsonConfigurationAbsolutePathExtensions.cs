@@ -73,7 +73,15 @@ namespace ChimpLab.Extensions.Configuration
 
             if (provider == null)
             {
-                provider = new PhysicalFileProvider(Path.GetDirectoryName(path));
+                var directoryName = Path.GetDirectoryName(path);
+
+                if(!ShouldDirectoryExist(optional, reloadOnChange) &&
+                   !Directory.Exists(directoryName))
+                {
+                    return builder;
+                }
+
+                provider = new PhysicalFileProvider(directoryName);
                 path = Path.GetFileName(path);
             }
             var source = new JsonConfigurationSource
@@ -85,6 +93,12 @@ namespace ChimpLab.Extensions.Configuration
             };
             builder.Add(source);
             return builder;
+        }
+
+        private static bool ShouldDirectoryExist(bool optional, bool reloadOnChange)
+        {
+            return !optional ||
+                   reloadOnChange;
         }
     }
 }
