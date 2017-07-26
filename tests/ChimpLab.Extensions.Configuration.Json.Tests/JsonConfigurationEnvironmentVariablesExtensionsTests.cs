@@ -82,18 +82,18 @@ namespace ChimpLab.Extensions.Configuration.Json.Tests
             Assert.Contains("Database", config.AsEnumerable().Select(k => k.Key));
         }
 
-        //[Fact]
-        //public void AddJsonFileFromEnvironmentVariable_WithKeyThatDoesExistButPointsToFolderThatDoesNot_DoesNothing()
-        //{
-        //    string key = "SomeKeyThatDoesNotExist";
-        //    string path = @"C:\path\that\doesnt\exist\nofile.json";
-        //    Environment.SetEnvironmentVariable(key, path);
-        //    IConfigurationBuilder sut = new ConfigurationBuilder();
+        [Fact]
+        public void AddJsonFileFromEnvironmentVariable_WithKeyThatDoesExistButPointsToFolderThatDoesNot_DoesNothing()
+        {
+            string key = "SomeKeyThatDoesNotExist";
+            string path = @"C:\path\that\doesnt\exist\nofile.json";
+            Environment.SetEnvironmentVariable(key, path);
+            IConfigurationBuilder sut = new ConfigurationBuilder();
 
-        //    sut.AddJsonFileFromEnvironmentVariable(key);
+            sut.AddJsonFileFromEnvironmentVariable(key);
 
-        //    Assert.Empty(sut.Sources);
-        //}
+            Assert.Empty(sut.Sources);
+        }
 
         private T GetValue<T>(IConfigurationSource source, string propName)
         {
