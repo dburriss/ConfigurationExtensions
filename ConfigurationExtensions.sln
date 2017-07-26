@@ -1,11 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.25420.1
+# Visual Studio 15
+VisualStudioVersion = 15.0.26430.14
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ChimpLab.Extensions.Configuration.Json", "src\ChimpLab.Extensions.Configuration.Json\ChimpLab.Extensions.Configuration.Json.xproj", "{B61D534E-D524-486C-8CE0-53A8A80B5E47}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChimpLab.Extensions.Configuration.Json", "src\ChimpLab.Extensions.Configuration.Json\ChimpLab.Extensions.Configuration.Json.csproj", "{A29F456F-331E-4D1A-87E4-E2550ABDF8A1}"
 EndProject
-Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "ChimpLab.Extensions.Configuration.Json.Tests", "tests\ChimpLab.Extensions.Configuration.Json.Tests\ChimpLab.Extensions.Configuration.Json.Tests.xproj", "{8421B404-FADD-420F-93D4-8EDD9AAEB27E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ChimpLab.Extensions.Configuration.Json.Tests", "tests\ChimpLab.Extensions.Configuration.Json.Tests\ChimpLab.Extensions.Configuration.Json.Tests.csproj", "{5267CB7E-9FAB-49F3-B41A-74C59F22213F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B61D534E-D524-486C-8CE0-53A8A80B5E47}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B61D534E-D524-486C-8CE0-53A8A80B5E47}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B61D534E-D524-486C-8CE0-53A8A80B5E47}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B61D534E-D524-486C-8CE0-53A8A80B5E47}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8421B404-FADD-420F-93D4-8EDD9AAEB27E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8421B404-FADD-420F-93D4-8EDD9AAEB27E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8421B404-FADD-420F-93D4-8EDD9AAEB27E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8421B404-FADD-420F-93D4-8EDD9AAEB27E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A29F456F-331E-4D1A-87E4-E2550ABDF8A1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A29F456F-331E-4D1A-87E4-E2550ABDF8A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A29F456F-331E-4D1A-87E4-E2550ABDF8A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A29F456F-331E-4D1A-87E4-E2550ABDF8A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5267CB7E-9FAB-49F3-B41A-74C59F22213F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5267CB7E-9FAB-49F3-B41A-74C59F22213F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5267CB7E-9FAB-49F3-B41A-74C59F22213F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5267CB7E-9FAB-49F3-B41A-74C59F22213F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

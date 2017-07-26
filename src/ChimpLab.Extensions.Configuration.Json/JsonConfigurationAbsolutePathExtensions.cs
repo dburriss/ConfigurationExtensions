@@ -68,7 +68,7 @@ namespace ChimpLab.Extensions.Configuration
             }
             if (string.IsNullOrEmpty(path))
             {
-                throw new ArgumentException(ChimpLab.Extensions.Configuration.Resources.Error_InvalidFilePath, nameof(path));
+                throw new ArgumentException(ChimpLab.Extensions.Configuration.Json.Resources.Error_InvalidFilePath, nameof(path));
             }
 
             if (provider == null)

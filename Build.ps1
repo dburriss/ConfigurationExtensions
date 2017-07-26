@@ -12,8 +12,8 @@ function Test{Param([Parameter(Position=0,Mandatory=$true)][String] $path)return
 # + Test - `restore` & `build` & `test` run but not `pack`
 #==============================================================
 $projects = @(
-    (Nuget ".\src\ChimpLab.Extensions.Configuration.Json"), 
-    (Test ".\tests\ChimpLab.Extensions.Configuration.Json.Tests")
+    (Nuget ".\src\ChimpLab.Extensions.Configuration.Json\ChimpLab.Extensions.Configuration.Json.csproj"), 
+    (Test ".\tests\ChimpLab.Extensions.Configuration.Json.Tests\ChimpLab.Extensions.Configuration.Json.Tests.csproj")
 )
 
 if (Test-Path -Path .\global.json)
@@ -128,7 +128,7 @@ $revision = "{0:D4}" -f [convert]::ToInt32($revision, 10)
 foreach ($project in $projects) {
     if($project.Item2 -eq "Test")
     {
-        Header " RUNNING TESTS FOR $project"
+        Header " RUNNING TESTS FOR $($project.Item1)" 
         Exec { & dotnet test $project.Item1 -c Release }
     }
 }
@@ -137,7 +137,7 @@ foreach ($project in $projects) {
     if($project.Item2 -eq "Nuget")
     {
         Header " PACKAGING FOR $project"
-        Exec { & dotnet pack $project.Item1 -c Release -o .\artifacts --version-suffix=$revision } 
+        Exec { & dotnet pack $project.Item1 -c Release -o .\artifacts } 
     }
 }
 

@@ -33,14 +33,7 @@ namespace ChimpLab.Extensions.Configuration.Json.Tests
 
         private void SetupStream(string path, string contents)
         {
-            this.path = path;
-            this.stream = System.IO.File.OpenWrite(path);
-            stream.SetLength(0);
-            stream.Flush(true);
-            byte[] data = new UTF8Encoding(true).GetBytes(contents);
-            stream.Write(data, 0, data.Length);
-            stream.Flush(true);
-            stream.Close();
+            File.AppendAllText(path, contents);
         }
 
         public void Dispose()
@@ -67,7 +60,7 @@ namespace ChimpLab.Extensions.Configuration.Json.Tests
                     stream.Dispose();
 
                 if(File.Exists(path))
-                    System.IO.File.Delete(path);
+                    File.Delete(path);
             }
 
             // release any unmanaged objects

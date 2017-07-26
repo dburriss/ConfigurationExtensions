@@ -2,13 +2,12 @@
 using System.Linq;
 using Microsoft.Extensions.Configuration;
 using Xunit;
-using ChimpLab.Extensions.Configuration;
-using Microsoft.Extensions.Configuration.Json;
 using PhilosophicalMonkey;
+using Microsoft.Extensions.Configuration.Json;
 
 namespace ChimpLab.Extensions.Configuration.Json.Tests
 {
-    public class JsonConfigurationAbsolutePathExtensionsTests
+    public class JsonConfigurationAbsolutePathExtensionsTests : IDisposable
     {
         private const string doesNotExistPath = "c:\\doesnotexist.json";
         private string _fileToCreate = "";
@@ -17,6 +16,11 @@ namespace ChimpLab.Extensions.Configuration.Json.Tests
             var tempPath = System.IO.Path.GetTempPath();
             _fileToCreate = System.IO.Path.Combine(tempPath, "test.json");
         }
+        public void Dispose()
+        {
+            //throw new NotImplementedException();
+        }
+
         [Fact]
         public void AddJsonFileFromAbsolutePath_WithNoPath_ThrowsArgumentException()
         {
@@ -115,7 +119,7 @@ namespace ChimpLab.Extensions.Configuration.Json.Tests
         private T GetValue<T>(IConfigurationSource source, string propName)
         {
             var type = source.GetType();
-            var prop = type.GetProperty(propName);
+            var prop = Reflect.OnProperties.GetPropertyInformation(type, propName);//type.GetProperty(propName);
             var value = prop.GetValue(source);
             return (T)value;
         }
