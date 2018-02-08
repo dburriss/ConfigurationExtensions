@@ -1,7 +1,7 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard1.3</TargetFramework>
+    <TargetFrameworks>net46;net461;netstandard1.3;netstandard2.0</TargetFrameworks>
     <Description>JSON configuration provider implementation for Microsoft.Extensions.Configuration.</Description>
     <PackageTags>configuration json</PackageTags>
     <Authors>Devon Burriss</Authors>
@@ -9,13 +9,41 @@
     <RepositoryUrl>https://github.com/dburriss/ConfigurationExtensions</RepositoryUrl>
     <PackageProjectUrl>https://github.com/dburriss/ConfigurationExtensions</PackageProjectUrl>
     <PackageLicenseUrl>https://github.com/dburriss/ConfigurationExtensions/blob/master/LICENSE</PackageLicenseUrl>
+    <AssemblyName>ChimpLab.Extensions.Configuration.Json</AssemblyName>
+    <Version>2.0.0</Version>
   </PropertyGroup>
 
-  <ItemGroup>
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net46' OR '$(TargetFramework)' == 'net461'">
+	  <DefineConstants>NETFULL</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'netstandard1.3' OR '$(TargetFramework)' == 'netstandard2.0'">
+    <DefineConstants>CORE</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard1.3' OR '$(TargetFramework)' == 'net46'">
     <PackageReference Include="Microsoft.Extensions.Configuration" Version="1.1.2" />
     <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="1.1.2" />
   </ItemGroup>
 
+  <ItemGroup Condition="'$(TargetFramework)' == 'netstandard2.0' OR '$(TargetFramework)' == 'net461'">
+    <PackageReference Include="Microsoft.Extensions.Configuration" Version="2.0.0" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Json" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net46' OR '$(TargetFramework)' == 'net461' ">
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+  </ItemGroup>
+  
   <ItemGroup>
     <Compile Update="Resources.Designer.cs">
       <DesignTime>True</DesignTime>

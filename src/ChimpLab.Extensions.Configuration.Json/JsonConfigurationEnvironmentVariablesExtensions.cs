@@ -84,7 +84,8 @@ namespace ChimpLab.Extensions.Configuration
                 return builder;
             }
 
-            return Path.IsPathRooted(path) ? 
+            var isRooted = Path.IsPathRooted(path);
+            return isRooted ? 
                 builder.AddJsonFile(provider, path, optional, reloadOnChange) : 
                 builder.AddJsonFileFromAbsolutePath(provider, path, optional, reloadOnChange);
         }
